@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+
+</head>
+<style>
+    .log-left {
+        float: left;
+        width: 50%;
+        height: 800px;
+
+        background-color: aqua;
+    }
+
+    .mao {
+        width: 100%;
+        height: 100%;
+    }
+
+    .log-back {
+        height: 800px;
+        margin-left: 50%;
+        background-color: antiquewhite;
+    }
+
+    .logo {
+        float: left;
+        width: 80px;
+        height: 80px;
+        margin-left: 50%;
+        margin-top: 100px;
+        background-color: aqua;
+    }
+
+    .lp {
+        float: left;
+        width: 100%;
+        height: 100%;
+    }
+
+    .log-box {
+        float: left;
+        margin-top: 30px;
+        margin-left: 28%;
+        font-family: Arial, sans-serif;
+    }
+
+    .log-little {
+        float: left;
+        margin-top: -5px;
+        margin-left: 32%;
+        font-family: Arial, sans-serif;
+    }
+
+    .username {
+        font-feature-settings: normal;
+        font-kerning: auto;
+        font-optical-sizing: auto;
+        font-size: 15px;
+        font-size-adjust: none;
+        font-stretch: 100%;
+        font-style: normal;
+        font-variant-alternates: normal;
+        font-variant-caps: normal;
+        font-variant-east-asian: normal;
+        font-variant-ligatures: normal;
+        font-variant-numeric: normal;
+        font-variant-position: normal;
+        font-variation-settings: normal;
+        font-weight: 400;
+        height: 46px;
+        letter-spacing: normal;
+        line-height: 22.5px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 20px;
+        outline-color: rgb(0, 0, 0);
+        outline-style: none;
+        outline-width: 0px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 12px;
+        resize: none;
+        text-align: start;
+        text-indent: 0px;
+        text-shadow: none;
+        text-transform: none;
+        visibility: visible;
+        width: 272px;
+        word-spacing: 0px;
+        writing-mode: horizontal-tb;
+        -webkit-rtl-ordering: logical;
+        margin-top: 10px;
+        margin-left: 35%;
+        box-shadow: rgba(8, 5, 33, 0.14) 0px 1px 1px 0px;
+        appearance: auto;
+        background-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(0, 0, 0);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-style: none;
+        border-bottom-width: 0px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        border-image-slice: 100%;
+        border-image-source: none;
+        border-image-width: 1;
+        border-left-color: rgb(0, 0, 0);
+        border-left-style: none;
+        border-left-width: 0px;
+        border-right-color: rgb(0, 0, 0);
+        border-right-style: none;
+        border-right-width: 0px;
+        border-top-color: rgb(0, 0, 0);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-top-style: none;
+        border-top-width: 0px;
+        box-shadow: rgba(8, 5, 33, 0.14) 0px 1px 1px 0px;
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        cursor: auto;
+        display: inline-block;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .password {
+        appearance: auto;
+        background-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(0, 0, 0);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-style: none;
+        border-bottom-width: 0px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        border-image-slice: 100%;
+        border-image-source: none;
+        border-image-width: 1;
+        border-left-color: rgb(0, 0, 0);
+        border-left-style: none;
+        border-left-width: 0px;
+        border-right-color: rgb(0, 0, 0);
+        border-right-style: none;
+        border-right-width: 0px;
+        border-top-color: rgb(0, 0, 0);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-top-style: none;
+        border-top-width: 0px;
+        box-shadow: rgba(8, 5, 33, 0.14) 0px 1px 1px 0px;
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        cursor: auto;
+        display: inline-block;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-kerning: auto;
+        font-optical-sizing: auto;
+        font-size: 15px;
+        font-size-adjust: none;
+        font-stretch: 100%;
+        font-style: normal;
+        font-variant-alternates: normal;
+        font-variant-caps: normal;
+        font-variant-east-asian: normal;
+        font-variant-ligatures: normal;
+        font-variant-numeric: normal;
+        font-variant-position: normal;
+        font-variation-settings: normal;
+        font-weight: 400;
+        height: 46px;
+        letter-spacing: normal;
+        line-height: 22.5px;
+        margin-bottom: 0px;
+        margin-left: 35%;
+        margin-right: 0px;
+        margin-top: 20px;
+        outline-color: rgb(0, 0, 0);
+        outline-style: none;
+        outline-width: 0px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 12px;
+        resize: none;
+        text-align: start;
+        text-indent: 0px;
+        text-shadow: none;
+        text-transform: none;
+        visibility: visible;
+        width: 272px;
+        word-spacing: 0px;
+        writing-mode: horizontal-tb;
+    }
+
+    .forget {
+        float: left;
+        margin-top: 10px;
+        margin-left: 47%;
+    }
+
+    .btn-log {
+        margin-top: 10px;
+        margin-left: 38%;
+        width: 30%;
+        height: 30px;
+        background-color: brown;
+        color: whitesmoke;
+        text-align: center;
+        border-radius: 10px;
+
+    }
+
+    .identity {
+        appearance: auto;
+        background-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(0, 0, 0);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-style: none;
+        border-bottom-width: 0px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        border-image-slice: 100%;
+        border-image-source: none;
+        border-image-width: 1;
+        border-left-color: rgb(0, 0, 0);
+        border-left-style: none;
+        border-left-width: 0px;
+        border-right-color: rgb(0, 0, 0);
+        border-right-style: none;
+        border-right-width: 0px;
+        border-top-color: rgb(0, 0, 0);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-top-style: none;
+        border-top-width: 0px;
+        box-shadow: rgba(8, 5, 33, 0.14) 0px 1px 1px 0px;
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        cursor: auto;
+        display: inline-block;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-kerning: auto;
+        font-optical-sizing: auto;
+        font-size: 15px;
+        font-size-adjust: none;
+        font-stretch: 100%;
+        font-style: normal;
+        font-variant-alternates: normal;
+        font-variant-caps: normal;
+        font-variant-east-asian: normal;
+        font-variant-ligatures: normal;
+        font-variant-numeric: normal;
+        font-variant-position: normal;
+        font-variation-settings: normal;
+        font-weight: 400;
+        height: 46px;
+        letter-spacing: normal;
+        line-height: 22.5px;
+        margin-bottom: 0px;
+        margin-left: 35%;
+        margin-right: 0px;
+        margin-top: 25px;
+        outline-color: rgb(0, 0, 0);
+        outline-style: none;
+        outline-width: 0px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 12px;
+        resize: none;
+        text-align: start;
+        text-indent: 0px;
+        text-shadow: none;
+        text-transform: none;
+        visibility: visible;
+        width: 272px;
+        word-spacing: 0px;
+        writing-mode: horizontal-tb;
+    }
+
+    .forget {
+        float: left;
+        margin-top: 10px;
+        margin-left: 47%;
+    }
+
+    .btn-log {
+        margin-top: 10px;
+        margin-left: 38%;
+        width: 30%;
+        height: 30px;
+        background-color: brown;
+        color: whitesmoke;
+        text-align: center;
+        border-radius: 10px;
+
+    }
+
+    .or {
+        text-align: center;
+        margin-top: 30px;
+        margin-left: 45%;
+        margin-right: 45%;
+        font-family: var(--paraFont);
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .zhuce {
+        margin-left: 43%;
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--paraColor);
+        font-family: var(--paraFont);
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+<div class="log-left">
+    <img src="images/03-毛氏红烧肉.jpg" class="mao">
+</div>
+<div class="log-back">
+    <div class="logo">
+        <img src="images/116083249-8d557fa3744b4ab55d2270f0a2578135d9409c142f962ee7eef14a2ad91b0ddb - 副本.webp"
+             class="lp">
+    </div>
+    <div class="log-box">
+        <h1>WELCOME BACK, SIGN IN</h1>
+    </div>
+    <div class="log-little">
+        Sign in to your account and make recharges.
+    </div>
+    <input type="text" class="username" placeholder="输入你的用户名...">
+    <input type="password" class="password" placeholder="输入你的密码...">
+    <select class="identity">
+        <option value="" disabled selected>请选择登录身份</option>
+        <option value="2">用户</option>
+        <option value="1">经营者</option>
+        <option value="0">管理员</option>
+    </select>
+    <a th:href="@{/forget}" class="forget">忘记密码了?</a>
+    <button class="btn-log" type="submit">登陆</button>
+    <p class="zhuce">
+        没有账号？<a th:href="@{/toRegister}">点击注册</a>
+    </p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    const instance = axios.create({
+        baseURL: 'http://localhost:8080/foodWeb/'
+    });
+    //获取用户名密码
+    document.querySelector('.btn-log').addEventListener('click', () => {
+        const identity = document.querySelector('.identity').value
+        const username = document.querySelector('.username').value
+        const password = document.querySelector('.password').value
+        console.log(identity, username, password)
+        instance({
+            url: '/verifyLogin',
+            method: 'GET',
+            params: {identity: identity, username: username, password: password},
+            data: {
+                identity: identity,
+                username: username,
+                password: password
+            }
+        }).then(result => {
+            console.log(result)
+            if (result.data.code === "1") {
+                //账户、密码正确
+                window.location.href = "http://localhost:8080/foodWeb/toIndex";
+            } else if (result.data.code === "0") {
+                alert(result.data.message);
+            } else if (result.data.code === null) {
+                alert('系统错误，未返回相关信息');
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    })
+</script>
+</body>
+
+</html>
